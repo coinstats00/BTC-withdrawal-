@@ -1,39 +1,36 @@
-# BTC-withdrawal-
+# transaction.py
+from bitcoinlib.wallets import Wallet
 
--6.8BTC ![BTC LOGO](https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=040)
+# Display BTC logo 
+(##Bitcoin Icon RGB: png, svg
+CMYK: pdf, eps, ai)
 
-Recovery payments 
+# Recovery payments 
+class Transaction:
+    def __init__(self, transaction_id, private_key, inputs, outputs):
+        self.transaction_id = transaction_id
+        self.private_key = private_key
+        self.inputs = inputs
+        self.outputs = outputs
 
-private_key = "7a9b09ec0f6002fc67f666dc9399779b2f6668fa5f759409dafd3742fccc9b76"
-
-inputs = [
-{
-"address": "bc1qu8tc4lm3f0tqkzrye7y866jg7mjkk397a4ymv4",
-"value": 2.5BTC
-},
-{
-"address": "bc1qu8tc4lm3f0tqkzrye7y866jg7mjkk397a4ymv4",
-"value": 1.5BTC
-}
-]
-
-outputs = [
-{
-"address": "bc1qndwsx8sfvm8enf5vh503hggr0ud8yhht49a4d3",
-"value": 1.5BTC
-},
-{
-"address": "bc1qndwsx8sfvm8enf5vh503hggr0ud8yhht49a4d3",
-"value": 1.3BTC
-}
-]
+    def __repr__(self):
+        return f"Transaction ID: {self.transaction_id}\n" \
+               f"Private Key: {self.private_key}\n" \
+               f"Inputs: {self.inputs}\n" \
+               f"Outputs: {self.outputs}"
 
 # Create a real transaction instance
-real_transaction = Transaction(
+real_transaction = Transaction( 
     transaction_id="ce9a3374bfcc1f26b1d5ecd98ad96136512563ade29dc0c099b78564aabd28be",
     private_key="7a9b09ec0f6002fc67f666dc9399779b2f6668fa5f759409dafd3742fccc9b76",
-    inputs="bc1qndwsx8sfvm8enf5vh503hggr0ud8yhht49a4d3",
-    outputs="bc1qu8tc4lm3f0tqkzrye7y866jg7mjkk397a4ymv4"
+    inputs=[
+        {"address": "bc1qu8tc4lm3f0tqkzrye7y866jg7mjkk397a4ymv4", "value": 2.5},
+        {"address": "bc1qu8tc4lm3f0tqkzrye7y866jg7mjkk397a4ymv4", "value": 1.5}
+    ],
+    outputs=[
+        {"address": "bc1qndwsx8sfvm8enf5vh503hggr0ud8yhht49a4d3", "value": 1.5},
+        {"address": "bc1qndwsx8sfvm8enf5vh503hggr0ud8yhht49a4d3", "value": 1.3}
+    ]
 )
 
 # Print the transaction

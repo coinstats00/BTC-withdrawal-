@@ -1,11 +1,7 @@
 # transaction.py
 from bitcoinlib.wallets import Wallet
 
-# Display BTC logo 
-(##Bitcoin Icon RGB: png, svg
-CMYK: pdf, eps, ai)
-
-# Recovery payments 
+# Recovery payments
 class Transaction:
     def __init__(self, transaction_id, private_key, inputs, outputs):
         self.transaction_id = transaction_id
@@ -15,7 +11,6 @@ class Transaction:
 
     def __repr__(self):
         return f"Transaction ID: {self.transaction_id}\n" \
-               f"Private Key: {self.private_key}\n" \
                f"Inputs: {self.inputs}\n" \
                f"Outputs: {self.outputs}"
 
